@@ -87,8 +87,12 @@ Ok, now we can pull our project from Git repository (or create own), create and 
 
 ```
 cd code
+```
+OR
 git pull project_git
 cd project_dir
+
+```
 python3.7 -m venv env
 . ./env/bin/activate
 ```
@@ -97,6 +101,7 @@ Upgrade pip, install django and other apps, extentions etc... .
 pip install -U pip
 pip install django
 pip freeze > requirements.txt
+vim requirements.txt
 ```
 ## Install and configure PostgreSQL
 
