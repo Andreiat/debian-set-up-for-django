@@ -95,6 +95,8 @@ python3.7 -m venv env
 Upgrade pip, install django and other apps, extentions etc... .
 ```
 pip install -U pip
+pip install django
+pip freeze > requirements.txt
 ```
 ## Install and configure PostgreSQL
 
