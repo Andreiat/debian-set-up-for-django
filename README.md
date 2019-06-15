@@ -89,7 +89,9 @@ cd project_dir
 python3.7 -m venv env
 . ./env/bin/activate
 ```
-
+```
+pip install -U pip
+```
 ## Install and configure PostgreSQL
 
 Install PostgreSQL 11 and configure locales.
