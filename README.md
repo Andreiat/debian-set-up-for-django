@@ -64,6 +64,9 @@ make -j8 ; \
 sudo make altinstall
 
 sudo rm -rf Python-3.7.3.tgz Python-3.7.3
+
+vim ~/.zshrc
+    export PATH=$PATH:/home/www/.python/bin
 ```
 
 Now python3.7 in `/home/www/.python/bin/python3.7`. Update pip:
