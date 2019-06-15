@@ -108,7 +108,6 @@ pip install ipython
 ./manage.py startapp first_app
 
 vim project_2/settings.py
-
     INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,7 +124,6 @@ pip install gunicorn
 pip freeze > ../requirements.txt
 
 vim gunicorn_config.py
-
     command = '/home/www/code/env_3.7/bin/gunicorn'
     pythonpath = '/home/www/code/project_2/project_2'
     bind = '127.0.0.1:8001'
@@ -135,6 +133,15 @@ vim gunicorn_config.py
     limit_request_field_size = 0
     raw_env = 'DJANGO_SETTINGS_MODULE=project_2.settings'
 
+mkdir bin
+
+vim bin/start_gunicorn.sh
+    #!/bin/bash
+    source /home/www/code/env_3.7/bin/activate
+    exec gunicorn -c "/home/www/code/project_2/gunicorn_config.py" project_201.wsgi
+    
+chmod +x bin/start_gunicorn.sh
+. ./bin/start_gunicorn.sh
 ```
 ## Install and configure PostgreSQL
 
