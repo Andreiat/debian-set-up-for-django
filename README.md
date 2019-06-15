@@ -92,6 +92,7 @@ cd project_dir
 python3.7 -m venv env
 . ./env/bin/activate
 ```
+Upgrade pip, install django and other apps, extentions etc... .
 ```
 pip install -U pip
 ```
