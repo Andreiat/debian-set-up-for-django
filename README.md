@@ -143,6 +143,22 @@ vim bin/start_gunicorn.sh
 chmod +x bin/start_gunicorn.sh
 . ./bin/start_gunicorn.sh
 ```
+## Configure nginx
+```
+sudo vim /etc/nginx/sites-enabled
+    location /test {
+        # proxy_pass http://127.0.0.1:8001/test;
+        proxy_pass http://127.0.0.1:8001;
+        proxy_set_header X-Forwarded-Host $server_name;
+        proxy_set_header X-Real-IP $remote_addr;
+        add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
+        add_header Access-Control-Allow-Origin *;
+    }
+    
+sudo service nginx restart
+vim /home/www/code/project_201/project_201/settings.py
+    ALLOWED_HOSTS = ["ar.test.ru", '127.0.0.1']
+```
 ## Install and configure PostgreSQL
 
 Install PostgreSQL 11 and configure locales.
