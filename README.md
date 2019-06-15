@@ -71,6 +71,9 @@ Make PATH for Python 3.7.3
 ```
 vim ~/.zshrc
     export PATH=$PATH:/home/www/.python/bin
+```
+Reboot zsh
+```
 . ~/.zshrc
 ```
 
