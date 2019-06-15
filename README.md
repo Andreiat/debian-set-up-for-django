@@ -96,12 +96,45 @@ cd project_dir
 python3.7 -m venv env
 . ./env/bin/activate
 ```
-Upgrade pip, install django and other apps, extentions etc... .
+## Upgrade pip, install django and other apps, extentions etc... .
 ```
 pip install -U pip
 pip install django
 pip freeze > requirements.txt
 vim requirements.txt
+django-admin startproject project_2
+cd project_2
+pip install ipython
+./manage.py startapp first_app
+
+vim project_2/settings.py
+
+    INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'first_app',
+]
+```
+## Install and configure Gunicorn
+```
+pip install gunicorn
+pip freeze > ../requirements.txt
+
+vim gunicorn_config.py
+
+    command = '/home/www/code/env_3.7/bin/gunicorn'
+    pythonpath = '/home/www/code/project_2/project_2'
+    bind = '127.0.0.1:8001'
+    workers = 5
+    user = 'www'
+    limit_request_fields = 32000
+    limit_request_field_size = 0
+    raw_env = 'DJANGO_SETTINGS_MODULE=project_2.settings'
+
 ```
 ## Install and configure PostgreSQL
 
